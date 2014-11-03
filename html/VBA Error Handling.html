@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-gb">
+    <meta charset="utf-8">
+    <title>VBA Error Handling</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="id-container" class="container centre">
+    <header>
+        <h1><a href="../Index.html" class="site-header">some excel, some code</a></h1>
+    </header>
+    <section class="content">
+
+        <h2 class="article-title">VBA Error Handling</h2>
+
+        <article class="post">
+
+            <div class="article-text">
+                <p>
+                    Excel is used to analyze data to make important decisions so, it is essential to handle errors
+                    correctly. This
+                    article is a short introduction to error handling in Visual Basic using a very simple example.
+                </p>
+
+                <p>
+                    In this example, I will show you how to deal with divide by zero errors. The example function named
+                    Commission
+                    simply calculates sales commission by dividing the Sales argument by the Rate.
+                </p>
+
+                <p>
+                    To open the Visual Basic editor hit Alt->L->V and then right click on your workbook to insert a
+                    module. Then
+                    type, or copy and paste the code.
+                </p>
+
+                <p class="code">
+                    Function Commission(Sales As Double, Rate As Double) As Variant
+                    <br>
+                    Const DivisionByZeroError = 11
+                    <br>
+                    On Error GoTo ErrorHandler
+                    <br>
+                    <span class="code-indent">Commission = Sales / Rate</span>
+                    <br>
+                    Exit Function
+                    <br>
+                    ErrorHandler:
+                    <br>
+                    <span class="code-indent">MsgBox "Error # " & Err & " : " & Error(Err)</span>
+                    <br>
+                    <span class="code-indent">If DivisionByZeroError = Err.Number Then</span>
+                    <br>
+                    <span class="code-indent"><span class="code-indent">Commission = CVErr(xlErrDiv0)</span></span>
+                    <br>
+                    <span class="code-indent">End If</span>
+                    <br>
+                    End Function
+                </p>
+
+                <div>
+                    <img src="../images/VBA Error Handling/10 VBA Error Handling.png" class="centre image-wide10">
+                </div>
+
+                <p>
+                    The first line of this function names the function Commission and the two arguments. The third line
+                    instructs
+                    Visual Basic to go to the error handler named ErrorHandler on detecting an error in the code or
+                    arguments. The
+                    fifth line is actually the end of the function and Visual Basic exits the function if it does not
+                    detect an
+                    error.
+                </p>
+
+                <p>
+                    If Visual Basic does detect an error such as division by zero, it stores the error code in the
+                    global variable
+                    Err. Visual Basic then stops execution of the code and resumes running at the first line of the
+                    error handler.
+                    Displaying a message box is not a good idea for all error handling but the error handler in this
+                    example
+                    displays a message box just for demonstration. The message is a concatenation of “Error” the value
+                    of the
+                    variable Err which contains the error number and a readable string returned by the function Error()
+                    for the code
+                    Err which explains what the code means.
+                </p>
+
+                <p>
+                    The second line of the error handler then checks that division by zero caused the error. Then the
+                    third line of
+                    the handler assigns the Excel error value for xlErrDiv0 to Commission, which VBA returns to Excel.
+                </p>
+
+                <p>
+                    After entering the code in your module, you can close the editor and return to your spreadsheet. If
+                    you try to
+                    pass a commission rate of zero to the function, you should get a #Div/0 error.
+                </p>
+                <img src="../images/VBA Error Handling/20 VBA Error Handling.png" class="centre image-wide10">
+
+                <p>
+                    It is important to return an error value from functions rather than a value such as zero or an empty
+                    string so
+                    that calculations based on incorrect data will look wrong to the end user. Excel error values also
+                    propagate so
+                    cells that rely on error values also evaluate to an error and display the appropriate error value.
+                    In this
+                    example, the second Commission is #DIV/0! and the Average function also evaluates to #DIV/0!
+                </p>
+                <img src="../images/VBA Error Handling/30 VBA Error Handling.png" class="centre image-wide10">
+                <p><a href="../files/VBA Error Handling.xlsm" class="sidebar-list-item">VBA Error Handling.xlsm</a></p>
+            </div>
+        </article>
+    </section>
+    <aside class="sidebar">
+        <ul class="sidebar-widget">
+            <li class="sidebar-categories">
+                <h2>Articles</h2>
+                <ul class="sidebar-list">
+                    <li><a href="./ActiveX Data Objects.html" class="sidebar-list-item">ActiveX Data Objects</a></li>
+                    <li><a href="./Basic Data Validation.html" class="sidebar-list-item">Basic Data Validation</a></li>
+                    <li><a href="./Pivot Table.html" class="sidebar-list-item">Pivot Table</a></li>
+                    <li><a href="./PowerPivot.html" class="sidebar-list-item">PowerPivot</a></li>
+                    <li><a href="./PowerQuery.html" class="sidebar-list-item">PowerQuery</a></li>
+                    <li><a href="./VBA Arrays.html" class="sidebar-list-item">VBA Arrays</a></li>
+                    <li><a href="./VBA Error Handling.html" class="sidebar-list-item">VBA Error Handling</a></li>
+                    <li><a href="./VBA Event Handling.html" class="sidebar-list-item">VBA Event Handling</a></li>
+                    <li><a href="./VBA Range Object.html" class="sidebar-list-item">VBA Range Object</a></li>
+                    <li><a href="./VBA User Defined Functions.html" class="sidebar-list-item">VBA User Defined
+                        Functions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer-page">
+        <p class="footer-copyright">Copyright © 2014 Kulwinder7. All rights reserved. All other copyrights remain the
+            property of their respective owners.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+
+<!--
+                <h2 class="sidebar-title">Articles</h2>
+-->

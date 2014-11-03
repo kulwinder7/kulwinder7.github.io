@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-gb">
+    <meta charset="utf-8">
+    <title>VBA Range Object</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="id-container" class="container centre">
+    <header>
+        <h1><a href="../Index.html" class="site-header">some excel, some code</a></h1>
+    </header>
+    <section class="content">
+
+        <h2 class="article-title">VBA Range Object</h2>
+
+        <article class="post">
+
+            <div class="article-text">
+                <p>
+                    One of the features, which make Excel so powerful, is its ability to use large amounts of data and
+                    this means
+                    ranges of cells. So, this example is going to be about how to access a range of cells in a user
+                    defined
+                    function, using Visual Basic for Applications. The Excel function Concatenate for joining strings
+                    requires you
+                    to enter a separate parameter for each cell and separator you might want to use. Unfortunately, it
+                    does not let
+                    you select a range of cells to join. For example to join the three cells A1, A2 and A3, you have to
+                    enter a
+                    formula with individual arguments.
+                </p>
+
+                <p>
+                    Unfortunately, it does not let you select a range of cells to join. For example to join the three
+                    cells A1, A2
+                    and A3, you have to enter a formula with individual arguments.
+                </p>
+
+                <p class="code">
+                    =CONCATENATE(“Excel”, ”is”, ”powerful”)
+                </p>
+
+                <p>
+                    or
+                </p>
+
+                <p class="code">
+                    =CONCATENATE(A1,A2,A3)
+                </p>
+
+                <p>
+                    rather than a range
+                </p>
+
+                <p class="code">
+                    =CONCATENATE(A1:A3)
+                </p>
+
+                <p>
+                    In the function in this example a separator such as comma, semi-colon or a space will be an optional
+                    parameter.
+                    It will be up to the user of the function if they want to provide the parameter or not. The first
+                    function
+                    argument will be a Range object, which the function will loop over and join the strings together.
+                </p>
+
+                <p>
+                    So, to open Visual Basic for Application from Excel hit the shortcut key combination Alt+F11
+                    simultaneously.
+                    Then right-click on your workbook in the Project Explorer pane on the left hand side of the main
+                    window and
+                    insert a module.
+                </p>
+
+                <p>
+                    In the editor window type or copy and paste the code.
+                </p>
+
+                <p class="code">
+                    Option Explicit
+                    <br>
+                    <br>
+                    Function Concatenate2(Range1 As Range, Optional Separator As String)
+                    <br>
+                    Dim cell As Range
+                    <br>
+                    Dim aString As String
+                    <br>
+                    <span class="code-indent">For Each cell In Range1</span>
+                    <br>
+                    <span class="code-indent"><span
+                            class="code-indent">aString = aString & cell.Value & Separator</span></span>
+                    <br>
+                    <span class="code-indent">Next cell</span>
+                    <br>
+                    <span class="code-indent">Concatenate2 = aString</span>
+                    <br>
+                    End Function
+                </p>
+
+                <img src="../images/VBA Range Object/10 VBA Range Object.png" class="centre image-wide10">
+
+                <p>
+                    The first line Option Explicit tells Visual Basic to generate a compile time error if the program
+                    does not
+                    declare variable and function names before they are used. The second line names the function as
+                    Concatenate2,
+                    which takes Range1 as a required argument and Separator as an optional argument. As we used Option
+                    Explicit, the
+                    function uses the Visual Basic keyword Dim to declare the working memory variables. The variable
+                    cell will hold
+                    the value we have to join next and aString will hold the value of the strings joined together so
+                    far. Then we
+                    have a loop using the Visual Basic keywords For Each and Next. Visual Basic will go through each
+                    cell in Range1
+                    and assign the value to cell and then use the & operator to join the strings together. The dot
+                    operator in
+                    cell.Value accesses a property of cell and in this case, the property we want is the Value.
+                </p>
+
+                <p>
+                    After entering the code in the editor, you can return to your spreadsheet by pressing Alt->F->C. To
+                    test the
+                    function, enter some strings in a range and then you can use Alt->M->F to display the Insert
+                    Function Wizard. In
+                    the, Select a Category, dropdown list box choose User Defined, Excel should display Concatenate2 in
+                    the Select a
+                    Function list. When you select Concatenate2, Excel will display the Function Arguments dialog box
+                    where you can
+                    enter a range and a separator character as you would for the normal Excel functions.
+                </p>
+                <img src="../images/VBA Range Object/20 VBA Range Object.png" class="centre image-wide10">
+
+                <p>
+                    If you wanted to you could improve the function by removing the trailing comma and making other
+                    changes.
+                </p>
+                <p><a href="../files/VBA Range Object.xlsm" class="sidebar-list-item">VBA Range Object.xlsm</a></p>
+            </div>
+        </article>
+    </section>
+    <aside class="sidebar">
+        <ul class="sidebar-widget">
+            <li class="sidebar-categories">
+                <h2>Articles</h2>
+                <ul class="sidebar-list">
+                    <li><a href="./ActiveX Data Objects.html" class="sidebar-list-item">ActiveX Data Objects</a></li>
+                    <li><a href="./Basic Data Validation.html" class="sidebar-list-item">Basic Data Validation</a></li>
+                    <li><a href="./Pivot Table.html" class="sidebar-list-item">Pivot Table</a></li>
+                    <li><a href="./PowerPivot.html" class="sidebar-list-item">PowerPivot</a></li>
+                    <li><a href="./PowerQuery.html" class="sidebar-list-item">PowerQuery</a></li>
+                    <li><a href="./VBA Arrays.html" class="sidebar-list-item">VBA Arrays</a></li>
+                    <li><a href="./VBA Error Handling.html" class="sidebar-list-item">VBA Error Handling</a></li>
+                    <li><a href="./VBA Event Handling.html" class="sidebar-list-item">VBA Event Handling</a></li>
+                    <li><a href="./VBA Range Object.html" class="sidebar-list-item">VBA Range Object</a></li>
+                    <li><a href="./VBA User Defined Functions.html" class="sidebar-list-item">VBA User Defined
+                        Functions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer-page">
+        <p class="footer-copyright">Copyright © 2014 Kulwinder7. All rights reserved. All other copyrights remain the
+            property of their respective owners.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+
+<!--
+                <h2 class="sidebar-title">Articles</h2>
+-->

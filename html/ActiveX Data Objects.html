@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-gb">
+    <meta charset="utf-8">
+    <title>ActiveX Data Objects</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="id-container" class="container centre">
+    <header>
+        <h1><a href="../Index.html" class="site-header">some excel, some code</a></h1>
+    </header>
+    <section class="content">
+
+        <h2 class="article-title">ActiveX Data Objects</h2>
+
+        <article class="post">
+
+            <div class="article-text">
+
+                <p>
+                    Excel can query database systems such as SQL Server. The code to query a spreadsheet is similar. In
+                    this
+                    example, I will demonstrate how to use Visual Basic code to run embedded SQL to answer questions
+                    about world
+                    population. I downloaded the workbook for world population since 1960 from the World Bank.
+                </p>
+
+                <p>
+                    I made two changes to the workbook I deleted the first two rows of the Data spreadsheet and inserted
+                    a new
+                    spreadsheet named QueryResult.
+                </p>
+
+                <p>
+                    If you want to complete this example you can open the Visual Basic Editor by hitting Alt->L->V.
+                </p>
+                <img src="../images/ActiveX Data Objects SQL/10 ActiveX Data Objects SQL.png"
+                     class="centre image-wide10">
+
+                <p>
+                    Windows only loads Dynamic Link Libraries as it needs, and to use ActiveX Data Objects we need to
+                    let Visual
+                    Basic know we need the ActiveX Data Objects library. So add a reference to ActiveX Data Objects by
+                    clicking the
+                    Tools Menu and then Add Reference. The Visual Basic Editor will display the Add Reference dialog. In
+                    the list of
+                    libraries scroll down to Microsoft ActiveX Data Objects and double click the library with the
+                    highest version
+                    number on your system.
+                </p>
+
+                <p>
+                    Then to insert a module you can right-click on your workbook in the VBA Project Explorer pane on the
+                    left of the
+                    editor, followed by clicking on Insert and then Module. You can then type, or copy and paste the
+                    following code
+                    into the new module.
+                </p>
+
+                <p class="code">
+                    Option Explicit
+                    <br>
+                    <br>
+                    Sub Query()
+                    <br>
+                    Dim queryString As String
+                    <br>
+                    Dim connection As New ADODB.connection
+                    <br>
+                    Dim recordSet As New ADODB.recordSet
+                    <br>
+                    Dim filePath As String
+                    <br>
+                    Dim connectionString As String
+                    <br>
+                    Dim fieldsCount As Integer
+                    <br>
+                    Dim queryResultSheet As Worksheet
+                    <br>
+                    <br>
+                    <span class="code-indent">Set queryResultSheet = ActiveWorkbook.Sheets("QueryResult")</span>
+                    <br>
+                    <span class="code-indent">queryResultSheet.Cells.ClearContents</span>
+                    <br>
+                    <span class="code-indent">filePath = ThisWorkbook.FullName</span>
+                    <br>
+                    <span class="code-indent">connectionString = "Provider=MSDASQL.1;DSN=Excel Files;DBQ=" & filePath & ";HDR=yes';"</span>
+                    <br>
+                    <span class="code-indent">connection.Open connectionString</span>
+                    <br>
+                    <span class="code-indent">queryString = "SELECT * FROM [Population$A1:BF259] Where [Country Name] = 'Panama' "</span>
+                    <br>
+                    <span class="code-indent">recordSet.Open queryString, connectionString, adOpenStatic</span>
+                    <br>
+                    <span class="code-indent">ActiveWorkbook.Sheets("QueryResult").Range("A2").CopyFromRecordset recordSet</span>
+                    <br>
+
+                    <span class="code-indent">For fieldsCount = 1 To recordSet.Fields.Count</span>
+                    <br>
+        <span class="code-indent"><span class="code-indent">
+            ActiveWorkbook.Sheets("QueryResult").Cells(1, fieldsCount).Value = recordSet.Fields(fieldsCount - 1).Name
+        </span></span>
+                    <br>
+                    <span class="code-indent">Next fieldsCount</span>
+                    <br>
+                    End Sub
+                </p>
+
+                <img src="../images/ActiveX Data Objects SQL/20 ActiveX Data Objects SQL.png"
+                     class="centre image-wide10">
+
+                <p>
+                    This code declares a subroutine called Query; you could give it a name appropriate to the problem
+                    you are
+                    solving. The next seven lines of code to Dim queryResultSheet declare variables that Visual Basic
+                    will use to
+                    run the query and display the results. The code ThisWorkbook.FullName returns the path as well as
+                    the name of
+                    the workbook, the function then uses the full path in the next line of code, which is the connection
+                    string. (To
+                    find the right connection string for files and databases it is best to look at the
+                    connectionstrings.com
+                    website.) The connection object is of type ADODB.connection and Open simply opens the database. Next
+                    is the
+                    actual query, which selects all the fields from the Population spreadsheet range Where the Country
+                    Name is equal
+                    to Panama. Calling open on the recordSet with the query and connection string then retrieves the
+                    information
+                    from the population spreadsheet.
+                </p>
+
+                <p>
+                    Now that we have the data, we need to display it. CopyFromRecordset copies the data to the worksheet
+                    named
+                    QueryResult. Then the For Next loop copies the field names to the first row of the spreadsheet.
+                </p>
+
+                <p>
+                    If you click on Run from the toolbar or press F5, you should get one row of data for the population
+                    for Panama.
+                </p>
+
+                <p>
+                    To answer a different question such as which countries and regions had a population larger than 100
+                    million in
+                    1960 you can amend the query.
+                </p>
+
+                <p class="code">
+                    queryString = "SELECT * FROM [Population$A1:BF259] Where [1960] > 100000000 "
+                </p>
+
+                <p>
+                    Running this query should return some regions and only India, China, Russia and the United States as
+                    having
+                    populations larger than 100 million people.
+                </p>
+
+                <p>
+                    To use more than one criteria use the SQL keyword ‘and’.
+                </p>
+
+                <p class="code">
+                    queryString = "SELECT * FROM [Population$A1:BF259] Where [Country Code] >= 'T' and [1960] >
+                    100000000 "
+                </p>
+
+                <p>
+                    Running this query returns some regions and only the United States as satisfying the arguments to
+                    the query.
+                </p>
+            </div>
+        </article>
+    </section>
+    <aside class="sidebar">
+        <ul class="sidebar-widget">
+            <li class="sidebar-categories">
+                <h2>Articles</h2>
+                <ul class="sidebar-list">
+                    <li><a href="./ActiveX Data Objects.html" class="sidebar-list-item">ActiveX Data Objects</a></li>
+                    <li><a href="./Basic Data Validation.html" class="sidebar-list-item">Basic Data Validation</a></li>
+                    <li><a href="./Pivot Table.html" class="sidebar-list-item">Pivot Table</a></li>
+                    <li><a href="./PowerPivot.html" class="sidebar-list-item">PowerPivot</a></li>
+                    <li><a href="./PowerQuery.html" class="sidebar-list-item">PowerQuery</a></li>
+                    <li><a href="./VBA Arrays.html" class="sidebar-list-item">VBA Arrays</a></li>
+                    <li><a href="./VBA Error Handling.html" class="sidebar-list-item">VBA Error Handling</a></li>
+                    <li><a href="./VBA Event Handling.html" class="sidebar-list-item">VBA Event Handling</a></li>
+                    <li><a href="./VBA Range Object.html" class="sidebar-list-item">VBA Range Object</a></li>
+                    <li><a href="./VBA User Defined Functions.html" class="sidebar-list-item">VBA User Defined
+                        Functions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer-page">
+        <p class="footer-copyright">Copyright © 2014 Kulwinder7. All rights reserved. All other copyrights remain the
+            property of their respective owners.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+
+<!--
+                <h2 class="sidebar-title">Articles</h2>
+-->

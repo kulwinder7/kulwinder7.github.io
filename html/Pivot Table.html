@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-gb">
+    <meta charset="utf-8">
+    <title>Pivot Table</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="id-container" class="container centre">
+    <header>
+        <h1><a href="../Index.html" class="site-header">some excel, some code</a></h1>
+    </header>
+    <section class="content">
+
+        <h2 class="article-title">Pivot Table</h2>
+
+        <article class="post">
+
+            <div class="article-text">
+                <p>
+                    Excel can use large amounts of data. However, spreadsheet users want to make decisions using summary
+                    data along
+                    with the ability to drill down to individual transactions. Pivot tables allow the spreadsheet users
+                    to do this
+                    in Excel.
+                </p>
+
+                <p>
+                    Excel data is best entered as a table rather than as a crosstab. In the image below, I have entered
+                    all the data
+                    as a list. The regions or the products do not go across the spreadsheet. Instead, I have repeated
+                    the region or
+                    product in each row, so the data is normalized. The only summary figures are the totals for the
+                    Quantity of
+                    units sold and the total Sales Revenue.
+                </p>
+
+                <p>
+                    If you need to normalize your data, you can use Excel PowerQuery’s Unpivot functionality.
+                </p>
+
+                <p>
+                    A pivot table will summarize the data so that we can answer useful questions: How many laptops did
+                    the
+                    salesforce in the North region sell? Which region generated the most sales revenue?
+                </p>
+
+                <p>
+                    So, for this example select A1 through to F25 with your mouse or shift and the cursor keys and then
+                    name the
+                    range Sales using the Address Box. Next, to insert a pivot table select a cell where you want Excel
+                    to insert
+                    your pivot table and then hit the accelerator keys Alt->N->V->T. In the Table/Range box type in
+                    Sales and press
+                    return.
+                </p>
+                <img src="../images/Pivot Table\10 Pivot Table.png" class="centre image-wide10">
+
+                <p>
+                    To summarize sales by Region, drag the Region field from the PivotTable Field List down to Row
+                    Labels and the
+                    Sales Revenue field down to Values. This simply gives you the total sales revenue by region. To see
+                    the total
+                    sales revenue for laptops, computers and monitors drag Product Type field from the PivotTable Field
+                    List down to
+                    Column Labels. This gives you a crosstab as in the image below.
+                </p>
+                <img src="../images/Pivot Table/20 Pivot Table.png" class="centre image-wide10">
+
+                <p>
+                    If you wanted to answer, the question “what made up the sales revenue of 325,910 for the East
+                    region?” you can
+                    double click on the Grand Total cell and Excel will insert a new spreadsheet for you with a list of
+                    all the
+                    details that it summarized in that cell.
+                </p>
+                <img src="../images/Pivot Table/30 Pivot Table.png" class="centre image-wide10">
+
+                <p>
+                    To look at a summary of the number of units sold you can drag Quantity down to Values and Excel will
+                    update the
+                    pivot table with the total units sold in each region.
+                </p>
+
+                <p>
+                    If you have more fields to view than can be easily summarized in one pivot table then you can use
+                    the Report
+                    Filter. You can drag any fields to the Report Filter list and then filter the pivot table.
+                </p>
+                <p><a href="../files/Pivot Table.xlsx" class="sidebar-list-item">Pivot Table.xlsx</a></p>
+            </div>
+        </article>
+    </section>
+    <aside class="sidebar">
+        <ul class="sidebar-widget">
+            <li class="sidebar-categories">
+                <h2>Articles</h2>
+                <ul class="sidebar-list">
+                    <li><a href="./ActiveX Data Objects.html" class="sidebar-list-item">ActiveX Data Objects</a></li>
+                    <li><a href="./Basic Data Validation.html" class="sidebar-list-item">Basic Data Validation</a></li>
+                    <li><a href="./Pivot Table.html" class="sidebar-list-item">Pivot Table</a></li>
+                    <li><a href="./PowerPivot.html" class="sidebar-list-item">PowerPivot</a></li>
+                    <li><a href="./PowerQuery.html" class="sidebar-list-item">PowerQuery</a></li>
+                    <li><a href="./VBA Arrays.html" class="sidebar-list-item">VBA Arrays</a></li>
+                    <li><a href="./VBA Error Handling.html" class="sidebar-list-item">VBA Error Handling</a></li>
+                    <li><a href="./VBA Event Handling.html" class="sidebar-list-item">VBA Event Handling</a></li>
+                    <li><a href="./VBA Range Object.html" class="sidebar-list-item">VBA Range Object</a></li>
+                    <li><a href="./VBA User Defined Functions.html" class="sidebar-list-item">VBA User Defined
+                        Functions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer-page">
+        <p class="footer-copyright">Copyright © 2014 Kulwinder7. All rights reserved. All other copyrights remain the
+            property of their respective owners.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+
+<!--
+                <h2 class="sidebar-title">Articles</h2>
+-->

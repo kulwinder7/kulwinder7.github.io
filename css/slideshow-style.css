@@ -1,0 +1,98 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31-Oct-2014, 09:52:58
+    Author     : kj
+  background: rgba(0,0,0,.4) url(./img/Full Screen.png); 
+.slides figure:first-child{
+    position: relative;
+}
+*/
+
+.container{
+    font-size:0.9em;
+    max-width:1640px;
+}
+
+.slides{
+    position: relative;
+    display: block;
+}
+
+.slides figure{
+    position: absolute;
+    top: 0;
+}
+
+.slides figure:first-child{
+    position: relative;
+}
+
+.slides figure img{
+    opacity: 0;
+}
+
+.slides figure p{
+    opacity: 0;
+}
+
+.slides .show img{
+    opacity: 1;
+}
+
+.slides .show p{
+    opacity: 1;
+}
+
+.forward-icon, .back-icon{
+  color: #fff;
+  position: absolute;
+  background: #000;
+  background: rgba(0,0,0, .6);
+  top: 50%;
+  z-index: 1;
+  font-size: 2em;
+  margin-top: -1.2em;
+  opacity: .3;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.forward-icon:hover, .back-icon:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+.forward-icon{
+  right: -1px;
+  padding: 10px 5px 15px 10px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.back-icon{
+  left: 0;
+  padding: 10px 10px 15px 5px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.fullscreen-icon{
+  display: block;
+  width: 64px;
+  height: 64px;    
+  background: rgba(0,0,0,.4) url(../images/Icons/FullScreen.png);
+  -webkit-background-size: contain; 
+  background-size: contain;
+  position: absolute;
+  top: 5px;
+  right: 5px;   
+  cursor: pointer;    
+  opacity: .4;
+} 
+.fullscreen-icon:hover{
+  opacity: .9;   
+}
+

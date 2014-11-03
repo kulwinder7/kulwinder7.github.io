@@ -1,0 +1,154 @@
+
+
+body{
+    font-family: arial, sans-serif;
+    font-size: 100%;
+}
+
+p{
+    background-color:white;
+}
+
+*, html{line-height: 1.6em;}
+
+.container{
+    font-size:0.9em;
+    max-width:1280px;
+}
+
+.site-header{
+    padding: 1em 0;
+    margin: 0px;
+    float: left;
+    width: 100%;
+    font-size: 200%;
+    text-decoration: underline;
+    color:black;
+}
+
+.centre{
+    margin:0 auto;
+    display:block;
+}
+
+.content{
+    width:70%;
+    float: left;
+    }
+
+.article-title{
+    color: black;
+    text-decoration: underline
+}
+
+.article{
+    width: 100%;
+    float: left;
+    padding: 0 0 1em;
+    margin: 0 0 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+.code{
+    background-color:black;
+    color:white;
+    padding:5px;
+}
+
+.code-indent{
+    padding-left:2em;
+}
+
+.image-wide10{
+    max-width: 100%;
+    height: auto;
+}
+
+.sidebar{
+    width: 20%;
+    float: right;
+}
+
+.sidebar-widget{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    list-style: none;
+}
+
+.sidebar-title{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    font-size: 1.45em;
+}
+
+.sidebar-list{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    list-style: none;
+    font-size: 0.9em;
+}
+
+.sidebar-list-item{
+    text-decoration: none;
+}
+
+.slide-caption{
+    font-size: 2.0em;
+}
+
+.footer-page{
+    width: 98%;
+    float: left;
+    padding: 1%;
+    background-color: white;
+    margin-top: 2em;
+}
+
+.footer-copyright{
+    font-size: 0.8em;
+}
+
+@media only screen and (min-width:470px) and (max-width:770px){
+    #id-container{width:96%; font-size:0.6875em;}
+    section.content, aside.sidebar{width:100%}
+}
+
+@media only screen and (min-width:270px) and (max-width:470px){
+    #id-container{width:96%; font-size:0.6875em;}
+    section.content, aside.sidebar{width:100%}
+}
+
+/*
+.navigation{
+    display: block;
+    margin 0 0 2em;
+    padding: 0px;
+    float: left;
+    width: 100%;
+    background-color:#181919;
+}
+
+.navigation-top{
+    padding: 0;
+    list-style: none;
+    position: relative;
+    display: inline-table;
+    z-index: 9999;
+    margin: 0px;
+    float: left;
+    width: 100%
+}
+
+    body{background-color: red;}
+    body{background-color: yellow;}
+
+.text-color{
+    color:#C30;
+}
+*/

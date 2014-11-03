@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-gb">
+    <meta charset="utf-8">
+    <title>VBA Arrays</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="id-container" class="container centre">
+    <header>
+        <h1><a href="../Index.html" class="site-header">some excel, some code</a></h1>
+    </header>
+    <section class="content">
+
+        <h2 class="article-title">VBA Arrays</h2>
+
+        <article class="post">
+
+            <div class="article-text">
+                <p>
+                    It is more efficient to organize data in Excel as normalized tables and then process it. To process
+                    large
+                    amounts of data Visual Basic user defined functions can take a Range of cells as function arguments.
+                    User
+                    defined functions can also return arrays of data which fill a range of cells. In this article, I
+                    will show you
+                    how to return arrays of data with very simple examples.
+                </p>
+
+                <p>
+                    This first example below returns an array of length 3 as a row. I name the function ArrayRow, but
+                    you can name
+                    your functions anything that is appropriate for the problem you are solving. The return type of
+                    arrays is
+                    actually Variant. The array to be returned is declared with Dim a(1 To 3) As Variant. Then the array
+                    is assigned
+                    the values 1 to 3, finally the array is returned with the statement ArrayRow = anArray.
+                </p>
+
+                <p class="code">
+                    Option Explicit
+                    <br>
+                    <br>
+                    Function ArrayRow() As Variant
+                    <br>
+                    Dim anArray
+                    <br>
+                    <span class="code-indent">anArray = Array(1, 2, 3, 4)</span>
+                    <br>
+                    <span class="code-indent">ArrayRow = anArray</span>
+                    <br>
+                    End Function
+                </p>
+
+                <p>
+                    If you close your Visual Basic Editor with Alt+Q and return to your spreadsheet, you can test the
+                    function.
+                    Select three cells in a row and then type =ArrayRow() and then press Ctrl+Shift+Enter for an array
+                    function.
+                    Pressing Enter as for a normal Excel function will not work correctly. When you enter an array
+                    function Excel
+                    surrounds the function with curly brackets.
+                </p>
+
+                <p>
+                    The second example is similar to the first example except it returns a one-dimensional array as a
+                    column. The
+                    last line of the function uses the Worksheet function to transpose the array from a row to a column.
+                </p>
+
+                <p class="code">
+                    Function ArrayColumn() As Variant
+                    <br>
+                    Dim anArray
+                    <br>
+                    <span class="code-indent">anArray = Array(1, 2, 3, 4)</span>
+                    <br>
+                    <span class="code-indent">ArrayColumn = Application.WorksheetFunction.Transpose(anArray)</span>
+                    <br>
+                    End Function
+                </p>
+
+                <p>
+                    The final example shown below returns a two-dimensional array as a Variant.
+                </p>
+
+                <p class="code">
+                    Function Array2d()
+                    <br>
+                    Dim anArray
+                    <br>
+                    <span class="code-indent">anArray = Array(Array(1, 2, 3), Array(4, 5, 6), Array(7, 8, 9))</span>
+                    <br>
+                    <span class="code-indent">Array2d = anArray</span>
+                    <br>
+                    End Function
+                </p>
+                <img src="../images/VBA Arrays/10 VBA Arrays.png" class="centre image-wide10">
+
+                <p>
+                    If you return to your spreadsheet you can test this function by selecting a square range of nine
+                    cells and then
+                    entering =Array2d() and then pressing Ctrl+Shift+Enter for an array function. You should get a
+                    result of 9 cells
+                    containing the numbers 1 to 9.
+                </p>
+                <img src="../images/VBA Arrays/20 VBA Arrays.png" class="centre image-wide10">
+
+                <p>
+                    If you use an array function, for a smaller range than the function wants to fill then Excel will
+                    simply not
+                    return all the function results. If you call an array function for more cells than the array
+                    function returns
+                    results for, then Excel will fill the extra cells with the error value #N/A. To use array functions
+                    in your own
+                    work you can use Application.Caller.Rows.Count and Column.Count to return an array the same
+                    dimensions as the
+                    range the user selected.
+                </p>
+                <p><a href="../files/VBA Arrays.xlsm" class="sidebar-list-item">VBA Arrays.xlsm</a></p>
+            </div>
+        </article>
+    </section>
+    <aside class="sidebar">
+        <ul class="sidebar-widget">
+            <li class="sidebar-categories">
+                <h2>Articles</h2>
+                <ul class="sidebar-list">
+                    <li><a href="./ActiveX Data Objects.html" class="sidebar-list-item">ActiveX Data Objects</a></li>
+                    <li><a href="./Basic Data Validation.html" class="sidebar-list-item">Basic Data Validation</a></li>
+                    <li><a href="./Pivot Table.html" class="sidebar-list-item">Pivot Table</a></li>
+                    <li><a href="./PowerPivot.html" class="sidebar-list-item">PowerPivot</a></li>
+                    <li><a href="./PowerQuery.html" class="sidebar-list-item">PowerQuery</a></li>
+                    <li><a href="./VBA Arrays.html" class="sidebar-list-item">VBA Arrays</a></li>
+                    <li><a href="./VBA Error Handling.html" class="sidebar-list-item">VBA Error Handling</a></li>
+                    <li><a href="./VBA Event Handling.html" class="sidebar-list-item">VBA Event Handling</a></li>
+                    <li><a href="./VBA Range Object.html" class="sidebar-list-item">VBA Range Object</a></li>
+                    <li><a href="./VBA User Defined Functions.html" class="sidebar-list-item">VBA User Defined
+                        Functions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer-page">
+        <p class="footer-copyright">Copyright © 2014 Kulwinder7. All rights reserved. All other copyrights remain the
+            property of their respective owners.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+
+<!--
+                <h2 class="sidebar-title">Articles</h2>
+-->

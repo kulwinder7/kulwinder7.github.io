@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-gb">
+    <meta charset="utf-8">
+    <title>PowerQuery</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="id-container" class="container centre">
+    <header>
+        <h1><a href="../Index.html" class="site-header">some excel, some code</a></h1>
+    </header>
+    <section class="content">
+
+        <h2 class="article-title">PowerQuery</h2>
+
+        <article class="post">
+
+            <div class="article-text">
+                <p>
+                    There are several ways to query data and load it into Excel. In this example, I will show you how to
+                    use
+                    PowerQuery.
+                </p>
+
+                <p>
+                    To use PowerQuery you need Excel 2010 or a more recent version. PowerQuery is an addin, which you
+                    can download
+                    from Microsoft. Once you have downloaded it, you can run the installer. If Excel installed
+                    PowerQuery correctly,
+                    you should see it on your ribbon menu.
+                </p>
+
+                <p>
+                    For this example, I downloaded the GDP per capita spreadsheet from the World Bank and the Freedom
+                    Index from the
+                    Fraser Institute in Canada.
+                </p>
+
+                <p>
+                    If you download the spreadsheets and then follow the steps, you will be able to see how we can use
+                    PowerQuery to
+                    investigate the relationship between datasets in this case freedom and prosperity.
+                </p>
+
+                <p>
+                    The Freedom Index does not use the standard three letter codes for countries so you need to put them
+                    in manually
+                    before you can join the Index with the GDP data.
+                </p>
+
+                <p>
+                    To query the Freedom Index, click on From File and then From Excel and then navigate to your
+                    workbook file in
+                    the dialog. PowerQuery will then display the navigator where you can select Table 2, Figure 1.
+                </p>
+
+                <img src="../images/PowerQuery/10 PowerQuery.png" class="centre image-wide10">
+
+                <p>
+                    The Table 2 sheet has a blank row at the top so click on Remove Top Rows and remove one row. At the
+                    bottom of
+                    the sheet are the Median and Average rows. To remove these rows click on the confusingly named
+                    Remove Top Rows
+                    and then Remove Bottom Rows and remove two rows.
+                </p>
+
+                <p>
+                    The first row of the sheet has labels, if you click on Use First Row as Headers, PowerQuery will
+                    name the
+                    columns.
+                </p>
+
+                <p>
+                    PowerQuery selects all the available columns but we only need three fields. To remove the columns
+                    select
+                    Country, Freedom Index and Country code, and then right-click and select Remove Other Columns.
+                </p>
+
+                <p>
+                    PowerQuery imports the Freedom Index as text but we need the index as numbers, so click on Data Type
+                    on the
+                    ribbon menu and then select Decimal Number.
+                </p>
+
+                <p>
+                    Now we have the query in a useful form. To import the data into Excel, click on Close & Load.
+                    PowerQuery will
+                    return the data to Excel as a table.
+                </p>
+
+                <p>
+                    Importing the gdp data is similar.
+                </p>
+
+                <p>
+                    You should then have two queries and tables. We can now join the datasets to look at freedom with
+                    the gdp
+                    figures.
+                </p>
+                <img src="../images/PowerQuery/50 PowerQuery.png" class="centre image-wide10">
+
+                <p>
+                    To join the two queries click on PowerQuery and then Merge. PowerQuery displays the Merge dialog.
+                    Here you can
+                    select your two queries and the Country Code field in both queries and then tick, Only include
+                    matching rows and
+                    then click Ok.
+                </p>
+
+                <p>
+                    When you run the query, PowerQuery will join the two datasets on the country code. PowerQuery will
+                    show you the
+                    Freedom Index and GDP columns side by side.
+                </p>
+
+                <p>
+                    Click on Expand in NewColumn and then select the Country Name and Country Code columns and then
+                    right-click and
+                    select Remove the columns from the context menu because we do not need the same columns twice.
+                </p>
+
+                <p>
+                    Once you are satisfied with your query click on Close and Load and PowerQuery will return the data
+                    to Excel.
+                </p>
+
+                <p>
+                    We can now create a scatter chart so we can see the relationship between freedom and gdp.
+                </p>
+
+                <p>
+                    To graph the data click on Insert and then Scatter XY chart. Excel will insert a blank chart for
+                    you.
+                    Right-click on the chart and then Select Data, and then click Add then Name the data series
+                    FreedomGDP. The X
+                    Values are the FreedomIndex and the Y Values are the GDP.
+                </p>
+
+                <p>
+                    If you click on the chart, the Layout Ribbon menu tab will be available. To see the relationship
+                    between freedom
+                    and prosperity more clearly click on TrendLine and then Linear Trendline so Excel will insert a line
+                    sloping up
+                    to the right because prosperity increases as freedom increases.
+                </p>
+
+                <img src="../images/PowerQuery/80 PowerQuery.png" class="centre image-wide10">
+            </div>
+        </article>
+    </section>
+    <aside class="sidebar">
+        <ul class="sidebar-widget">
+            <li class="sidebar-categories">
+                <h2>Articles</h2>
+                <ul class="sidebar-list">
+                    <li><a href="./ActiveX Data Objects.html" class="sidebar-list-item">ActiveX Data Objects</a></li>
+                    <li><a href="./Basic Data Validation.html" class="sidebar-list-item">Basic Data Validation</a></li>
+                    <li><a href="./Pivot Table.html" class="sidebar-list-item">Pivot Table</a></li>
+                    <li><a href="./PowerPivot.html" class="sidebar-list-item">PowerPivot</a></li>
+                    <li><a href="./PowerQuery.html" class="sidebar-list-item">PowerQuery</a></li>
+                    <li><a href="./VBA Arrays.html" class="sidebar-list-item">VBA Arrays</a></li>
+                    <li><a href="./VBA Error Handling.html" class="sidebar-list-item">VBA Error Handling</a></li>
+                    <li><a href="./VBA Event Handling.html" class="sidebar-list-item">VBA Event Handling</a></li>
+                    <li><a href="./VBA Range Object.html" class="sidebar-list-item">VBA Range Object</a></li>
+                    <li><a href="./VBA User Defined Functions.html" class="sidebar-list-item">VBA User Defined
+                        Functions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer-page">
+        <p class="footer-copyright">Copyright © 2014 Kulwinder7. All rights reserved. All other copyrights remain the
+            property of their respective owners.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+
+<!--
+                <h2 class="sidebar-title">Articles</h2>
+-->

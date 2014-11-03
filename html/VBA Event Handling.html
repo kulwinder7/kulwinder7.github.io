@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-gb">
+    <meta charset="utf-8">
+    <title>VBA Event Handling</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="id-container" class="container centre">
+    <header>
+        <h1><a href="../Index.html" class="site-header">some excel, some code</a></h1>
+    </header>
+    <section class="content">
+
+        <h2 class="article-title">VBA Event Handling</h2>
+
+        <article class="post">
+
+            <div class="article-text">
+                <p>
+                    Excel lets the user run any functionality at any time. But sometimes we want to know what actions
+                    the user took.
+                    In this article, I am going to demonstrate some code for very basic event handling. With an event
+                    handler Excel
+                    will simply run your code when the appropriate event fires.
+                </p>
+
+                <p>
+                    In this example to provide visual feedback of the event, I am going to change the font size of the
+                    text in a
+                    cell, when the user directly changes the text in a cell. This is not a good use of event handling
+                    but it shows
+                    how the code works and it is possible to use similar code and the same principles to solve other
+                    problems.
+                </p>
+
+                <p>
+                    So, to start this exercise, open a new workbook. Then open the Visual Basic Editor with the
+                    accelerator keys
+                    Alt->L->V. Excel should list the worksheets in your workbook in the Project Explorer pane on the
+                    left of the
+                    editor. To view the first worksheet’s module double-click on it with your mouse. Excel will not list
+                    the
+                    worksheet module separately as Visual Basic attaches it to the worksheet. Below the toolbar in the
+                    Object
+                    drop-down list box, select Worksheet. Then in the next drop-down list box, the event handler list
+                    box, select
+                    the Change event.
+                </p>
+                <img src="../images/VBA Event Handling/10 VBA Event Handling.png" class="centre image-wide10">
+
+                <p>
+                    Then type or copy and paste the following code:
+                </p>
+
+                <p class="code">
+                    Option Explicit
+                    <br>
+                    <br>
+                    Private Sub Worksheet_Change(ByVal Target As Range)
+                    <br>
+                    <span class="code-indent">Target.Font.Size = 30</span>
+                    <br>
+                    End Sub
+                </p>
+
+                <img src="../images/VBA Event Handling/20 VBA Event Handling.png" class="centre image-wide10">
+
+                <p>
+                    When your code is correct, close the Visual Basic Editor and return to your spreadsheet. Then type
+                    some text in
+                    a cell and hit return, the font size of the text should change to 30 as in the image below. If you
+                    change the
+                    cell from one the Excel Ribbon menu functions such as color or other style functions the event does
+                    not fire.
+                    The event also does not fire if the value of the cell changes because of recalculation based on the
+                    change of a
+                    value in another cell. So event handling can be quite tricky as well as useful. Event handling can
+                    be useful to
+                    update pivot tables whenever a spreadsheet is opened or to run a Visual Basic sub routine in
+                    response to a
+                    button click on a form.
+                </p>
+                <img src="../images/VBA Event Handling/30 VBA Event Handling.png" class="centre image-wide10">
+                <p><a href="../files/VBA Event Handling.xlsm" class="sidebar-list-item">VBA Event Handling.xlsm</a></p>
+            </div>
+        </article>
+    </section>
+    <aside class="sidebar">
+        <ul class="sidebar-widget">
+            <li class="sidebar-categories">
+                <h2>Articles</h2>
+                <ul class="sidebar-list">
+                    <li><a href="./ActiveX Data Objects.html" class="sidebar-list-item">ActiveX Data Objects</a></li>
+                    <li><a href="./Basic Data Validation.html" class="sidebar-list-item">Basic Data Validation</a></li>
+                    <li><a href="./Pivot Table.html" class="sidebar-list-item">Pivot Table</a></li>
+                    <li><a href="./PowerPivot.html" class="sidebar-list-item">PowerPivot</a></li>
+                    <li><a href="./PowerQuery.html" class="sidebar-list-item">PowerQuery</a></li>
+                    <li><a href="./VBA Arrays.html" class="sidebar-list-item">VBA Arrays</a></li>
+                    <li><a href="./VBA Error Handling.html" class="sidebar-list-item">VBA Error Handling</a></li>
+                    <li><a href="./VBA Event Handling.html" class="sidebar-list-item">VBA Event Handling</a></li>
+                    <li><a href="./VBA Range Object.html" class="sidebar-list-item">VBA Range Object</a></li>
+                    <li><a href="./VBA User Defined Functions.html" class="sidebar-list-item">VBA User Defined
+                        Functions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer-page">
+        <p class="footer-copyright">Copyright © 2014 Kulwinder7. All rights reserved. All other copyrights remain the
+            property of their respective owners.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+
+<!--
+                <h2 class="sidebar-title">Articles</h2>
+-->

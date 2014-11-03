@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-gb">
+    <meta charset="utf-8">
+    <title>VBA User Defined Functions</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="id-container" class="container centre">
+    <header>
+        <h1><a href="../Index.html" class="site-header">some excel, some code</a></h1>
+    </header>
+    <section class="content">
+
+        <h2 class="article-title">VBA User Defined Functions</h2>
+
+        <article class="post">
+
+            <div class="article-text">
+                <p>
+                    Excel provides many functions for finance, engineering, text manipulation and other applications but
+                    sometimes
+                    you need a function for a specialized task. One of the less used features of Excel is the ability to
+                    write your
+                    own functions. Excel like the other Microsoft Office applications has Visual Basic for Applications
+                    built in.
+                    So, you can go ahead and define any function you need for your work.
+                </p>
+
+                <img src="../images/VBA User Defined Functions/10 VBA UDF.png" class="centre image-wide10">
+
+                <p>
+                    To use Visual Basic it is best to enable the Developer Ribbon menu. So, if you hit Alt and then F
+                    followed by T
+                    for options you can then arrow down to Customize Ribbon. Tab across to the ribbons list box and then
+                    go down to
+                    the Developer check box and tick it by hitting the space bar. If you press return, Excel will go
+                    back to your
+                    spreadsheet. If you look at your menu, the Developer Ribbon tab should now be visible.
+                </p>
+
+                <p>
+                    Hitting the accelerator keys Alt->L->V opens the Visual Basic Editor from the Developer Ribbon. You
+                    should see
+                    the Visual Basic for Applications main window as below. Your workbook will be in the list in the
+                    Project
+                    Explorer pane on the left. Right click on it to display the context menu and then under Insert,
+                    click Module.
+                    Excel should create a module named Module1 for you and then display it in the main window. If Excel
+                    did not
+                    insert Option Explicit for you just type it in at the top, It helps catch spelling mistakes in
+                    variable and
+                    function names.
+                </p>
+
+                <p>
+                    To enter the user defined function type, or copy and paste the following code:
+                </p>
+
+                <p class="code">
+                    Option Explicit
+                    <br>
+                    Function area(Height as Integer, Width as Integer) as Integer
+                    <br>
+                    <span class="code-indent">area=Height * Width</span>
+                    <br>
+                    End Function
+                </p>
+
+                <p>
+                    Your screen should look similar to the editor in the image below.
+                </p>
+                <img src="../images/VBA User Defined Functions/20 VBA UDF.png" class="centre image-wide10">
+
+                <p>
+                    The first line of the function tells Excel we are creating a function called area, which accepts two
+                    arguments
+                    as integer numbers, height and width, and the function returns an Integer number. The second line
+                    tells Excel to
+                    calculate the area by multiplying height and width. The third line is simply the end of the
+                    function. </p>
+
+                <p>
+                    After you have typed in the function, you can return to your spreadsheet by hitting Alt ->F->C to
+                    close the
+                    editor.
+                </p>
+
+                <p>
+                    In your spreadsheet you can now test your function, so hit Alt->M->F for Insert Function. Then in
+                    the select a
+                    category drop-down list box, select User Defined and Excel will list your area function in the
+                    Select a Function
+                    box. So select the area function and the Function Arguments dialog box will appear, requesting
+                    height and width
+                    in two text boxes. Here you can simply enter two numbers. In the image below, I have entered 20 and
+                    10; Excel as
+                    responded by displaying a preview of the expected result 200.
+                </p>
+
+                <p>
+                    It is possible to define more complicated and useful functions with more knowledge of Visual Basic
+                    for
+                    Applications. To further your skills with Visual Basic you could try writing functions for strings,
+                    dates and
+                    ranges that use different function argument declarations and different Excel functions to manipulate
+                    them.
+                    Another very important technique worth learning for reliable Visual Basic programming is error
+                    handling, the
+                    basic principles of which I will cover in another article. </p>
+
+                <img src="../images/VBA User Defined Functions/30 VBA UDF.png" class="centre image-wide10">
+                <p><a href="../files/VBA User Defined Functions.xlsm" class="sidebar-list-item">VBA User Defined Functions.xlsm</a></p>
+            </div>
+        </article>
+    </section>
+    <aside class="sidebar">
+        <ul class="sidebar-widget">
+            <li class="sidebar-categories">
+                <h2>Articles</h2>
+                <ul class="sidebar-list">
+                    <li><a href="./ActiveX Data Objects.html" class="sidebar-list-item">ActiveX Data Objects</a></li>
+                    <li><a href="./Basic Data Validation.html" class="sidebar-list-item">Basic Data Validation</a></li>
+                    <li><a href="./Pivot Table.html" class="sidebar-list-item">Pivot Table</a></li>
+                    <li><a href="./PowerPivot.html" class="sidebar-list-item">PowerPivot</a></li>
+                    <li><a href="./PowerQuery.html" class="sidebar-list-item">PowerQuery</a></li>
+                    <li><a href="./VBA Arrays.html" class="sidebar-list-item">VBA Arrays</a></li>
+                    <li><a href="./VBA Error Handling.html" class="sidebar-list-item">VBA Error Handling</a></li>
+                    <li><a href="./VBA Event Handling.html" class="sidebar-list-item">VBA Event Handling</a></li>
+                    <li><a href="./VBA Range Object.html" class="sidebar-list-item">VBA Range Object</a></li>
+                    <li><a href="./VBA User Defined Functions.html" class="sidebar-list-item">VBA User Defined
+                        Functions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer-page">
+        <p class="footer-copyright">Copyright © 2014 Kulwinder7. All rights reserved. All other copyrights remain the
+            property of their respective owners.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+
+<!--
+                <h2 class="sidebar-title">Articles</h2>
+-->

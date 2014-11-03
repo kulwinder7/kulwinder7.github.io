@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-gb">
+    <meta charset="utf-8">
+    <title>Basic Data Validation</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="id-container" class="container centre">
+    <header>
+        <h1><a href="../Index.html" class="site-header">some excel, some code</a></h1>
+    </header>
+    <section class="content">
+
+        <h2 class="article-title">Basic Data Validation</h2>
+
+        <article class="post">
+
+            <div class="article-text">
+                <p>
+                    Excel is very flexible, easy to use software. You can enter any data, anywhere you want. This is
+                    good but can
+                    also be a problem because it makes it easy to make data entry mistakes.
+                </p>
+
+                <p>
+                    In this article, I demonstrate how to setup data validation rules to make your data entry more
+                    accurate.
+                </p>
+
+                <p>
+                    To start, select the range of cells you want to validate your data entry for, by dragging the mouse
+                    or using the
+                    shift and arrow keys. If you hit the shortcut key Alt for the Excel Ribbon menu and then A for Data
+                    and then V
+                    for the Data Validation group and then V again, Excel will display the Data Validation dialog box.
+                </p>
+
+                <img src="../images/Basic Data Validation/10 Data Validation Menu.png" class="centre image-wide10">
+
+                <p>
+                    For this example click on the Allow drop-down and select List. Then enable In-cell drop-down by
+                    ticking the box,
+                    this will let you select from the drop-down list box, when you enter data in the validated cells. In
+                    the Source
+                    box, enter "London, Paris, Hong Kong" as your comma separated list as shown in the image below.
+                </p>
+
+                <img src="../images/Basic Data Validation/30 Data Validation Source.png" class="centre image-wide10">
+
+                <p>
+                    Once you have entered your list of valid data click on the Input Message tab. In the title box type
+                    "Cities" and
+                    in the message box type "Enter a valid city name."
+                </p>
+
+                <img src="../images/Basic Data Validation/40 Input Message.png" class="centre image-wide10">
+
+                <p>
+                    When you are happy with your input message click on the Error tab. Make sure the Show error alert
+                    after invalid
+                    data is entered tick box is checked. In the Title box type "Cities" and in the Error message type
+                    "Enter a valid
+                    city name." Then click on OK to close the Data Validation dialog box and return to your spreadsheet.
+                </p>
+
+                <img src="../images/Basic Data Validation/45 Error Message.png" class="centre image-wide10">
+
+                <p>
+                    Now click on one of the cells you selected for validation. You should see a drop-down list
+                    displaying London,
+                    Paris and Hong Kong. You can just select the correct city name you want using your mouse. The
+                    shortcut key to
+                    view the drop-down list is Alt+down arrow cursor, and then you can just select the city you want
+                    with the down
+                    arrow cursor key.
+                </p>
+
+                <img src="../images/Basic Data Validation/50 Drop Down List.png" class="centre image-wide10">
+
+                <p>
+                    If you go to a blank cell and type Moscow and hit return, you should get the error message.
+                </p>
+
+                <img src="../images/Basic Data Validation/60 Error Message.png" class="centre image-wide10">
+
+                <p>
+                    To add Moscow, as a valid entry just go back to the Data Validation dialog box with Alt+A+V+V and
+                    add Moscow
+                    after a comma in the Source box. Select the Apply these changes to all other cells with the same
+                    settings check
+                    box at the bottom of the dialog box, this will highlight your range and ensure your validation
+                    setting applies
+                    to all of the cells you originally selected.
+                </p>
+
+                <img src="../images/Basic Data Validation/70 Amend the Validation Rule.png" class="centre image-wide10">
+                <p><a href="../files/Basic Data Validation.xlsx" class="sidebar-list-item">Basic Data Validation.xlsx</a></p>
+
+            </div>
+        </article>
+    </section>
+    <aside class="sidebar">
+        <ul class="sidebar-widget">
+            <li class="sidebar-categories">
+                <h2>Articles</h2>
+                <ul class="sidebar-list">
+                    <li><a href="./ActiveX Data Objects.html" class="sidebar-list-item">ActiveX Data Objects</a></li>
+                    <li><a href="./Basic Data Validation.html" class="sidebar-list-item">Basic Data Validation</a></li>
+                    <li><a href="./Pivot Table.html" class="sidebar-list-item">Pivot Table</a></li>
+                    <li><a href="./PowerPivot.html" class="sidebar-list-item">PowerPivot</a></li>
+                    <li><a href="./PowerQuery.html" class="sidebar-list-item">PowerQuery</a></li>
+                    <li><a href="./VBA Arrays.html" class="sidebar-list-item">VBA Arrays</a></li>
+                    <li><a href="./VBA Error Handling.html" class="sidebar-list-item">VBA Error Handling</a></li>
+                    <li><a href="./VBA Event Handling.html" class="sidebar-list-item">VBA Event Handling</a></li>
+                    <li><a href="./VBA Range Object.html" class="sidebar-list-item">VBA Range Object</a></li>
+                    <li><a href="./VBA User Defined Functions.html" class="sidebar-list-item">VBA User Defined
+                        Functions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer-page">
+        <p class="footer-copyright">Copyright © 2014 Kulwinder7. All rights reserved. All other copyrights remain the
+            property of their respective owners.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+
+<!--
+                <h2 class="sidebar-title">Articles</h2>
+-->
